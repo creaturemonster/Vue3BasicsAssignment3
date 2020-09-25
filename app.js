@@ -1,8 +1,7 @@
 const app = Vue.createApp({
   data() {
     return {
-      counter: 0,
-      number=0
+      number:0
     };
   },
   computed:{
