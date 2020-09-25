@@ -2,6 +2,7 @@ const app = Vue.createApp({
   data() {
     return {
       counter: 0,
+      number=0,
       name: '', 
       fullName:'', 
       lastName:''
@@ -15,8 +16,27 @@ const app = Vue.createApp({
         }
         return this.name + '' +'Schwarzmuller';
       },
+    result(){
+      if(this.number < 37){
+        return "Not there yet!";
+      }
+      else if(this.number === 37){
+        return this.number;
+      }
+      else{
+        return 'Too Much';
+      }
+    }
   },
   watch:{
+    result(){
+      console.log("Watcher executing");
+      const that = this;
+      setTimeout=(function() {
+        that.number=0;
+      }, 5000);
+    }
+  }, 
     name(value){
       if(value == ''){
         this.fullName='';
